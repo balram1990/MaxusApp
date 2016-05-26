@@ -7,14 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		793A90801CEB4F2900C5CEAB /* PG.json in Resources */ = {isa = PBXBuildFile; fileRef = 793A907F1CEB4F2900C5CEAB /* PG.json */; };
+		793A90821CEB50A700C5CEAB /* Non-PG.json in Resources */ = {isa = PBXBuildFile; fileRef = 793A90811CEB50A700C5CEAB /* Non-PG.json */; };
+		793A90881CECBDD400C5CEAB /* ServicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793A90871CECBDD400C5CEAB /* ServicsViewController.swift */; };
+		793A908A1CECF08B00C5CEAB /* ThanksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793A90891CECF08B00C5CEAB /* ThanksViewController.swift */; };
+		793A908C1CED462100C5CEAB /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793A908B1CED462100C5CEAB /* ContactViewController.swift */; };
+		793A908E1CED46EE00C5CEAB /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793A908D1CED46EE00C5CEAB /* KeyboardViewController.swift */; };
 		799365FD1CEA376D008CC705 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799365FC1CEA376D008CC705 /* AppDelegate.swift */; };
 		799365FF1CEA376D008CC705 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799365FE1CEA376D008CC705 /* ViewController.swift */; };
 		799366021CEA376D008CC705 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 799366001CEA376D008CC705 /* Main.storyboard */; };
 		799366041CEA376D008CC705 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 799366031CEA376D008CC705 /* Assets.xcassets */; };
 		799366071CEA376D008CC705 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 799366051CEA376D008CC705 /* LaunchScreen.storyboard */; };
+		7993660F1CEA3B98008CC705 /* CalculatorInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7993660E1CEA3B98008CC705 /* CalculatorInfoViewController.swift */; };
+		799366111CEA3BA6008CC705 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799366101CEA3BA6008CC705 /* CalculatorViewController.swift */; };
+		799366131CEA3BB4008CC705 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799366121CEA3BB4008CC705 /* ResultViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		793A907F1CEB4F2900C5CEAB /* PG.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PG.json; sourceTree = "<group>"; };
+		793A90811CEB50A700C5CEAB /* Non-PG.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Non-PG.json"; sourceTree = "<group>"; };
+		793A90871CECBDD400C5CEAB /* ServicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicsViewController.swift; sourceTree = "<group>"; };
+		793A90891CECF08B00C5CEAB /* ThanksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThanksViewController.swift; sourceTree = "<group>"; };
+		793A908B1CED462100C5CEAB /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		793A908D1CED46EE00C5CEAB /* KeyboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		799365F91CEA376D008CC705 /* Maxus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maxus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		799365FC1CEA376D008CC705 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		799365FE1CEA376D008CC705 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +37,9 @@
 		799366031CEA376D008CC705 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		799366061CEA376D008CC705 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		799366081CEA376D008CC705 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7993660E1CEA3B98008CC705 /* CalculatorInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorInfoViewController.swift; sourceTree = "<group>"; };
+		799366101CEA3BA6008CC705 /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
+		799366121CEA3BB4008CC705 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +72,21 @@
 		799365FB1CEA376D008CC705 /* Maxus */ = {
 			isa = PBXGroup;
 			children = (
+				793A908D1CED46EE00C5CEAB /* KeyboardViewController.swift */,
 				799365FC1CEA376D008CC705 /* AppDelegate.swift */,
 				799365FE1CEA376D008CC705 /* ViewController.swift */,
 				799366001CEA376D008CC705 /* Main.storyboard */,
 				799366031CEA376D008CC705 /* Assets.xcassets */,
 				799366051CEA376D008CC705 /* LaunchScreen.storyboard */,
 				799366081CEA376D008CC705 /* Info.plist */,
+				7993660E1CEA3B98008CC705 /* CalculatorInfoViewController.swift */,
+				799366101CEA3BA6008CC705 /* CalculatorViewController.swift */,
+				799366121CEA3BB4008CC705 /* ResultViewController.swift */,
+				793A907F1CEB4F2900C5CEAB /* PG.json */,
+				793A90811CEB50A700C5CEAB /* Non-PG.json */,
+				793A90871CECBDD400C5CEAB /* ServicsViewController.swift */,
+				793A90891CECF08B00C5CEAB /* ThanksViewController.swift */,
+				793A908B1CED462100C5CEAB /* ContactViewController.swift */,
 			);
 			path = Maxus;
 			sourceTree = "<group>";
@@ -96,6 +123,7 @@
 				TargetAttributes = {
 					799365F81CEA376D008CC705 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = S2T5RH48ZP;
 					};
 				};
 			};
@@ -122,7 +150,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				793A90821CEB50A700C5CEAB /* Non-PG.json in Resources */,
 				799366071CEA376D008CC705 /* LaunchScreen.storyboard in Resources */,
+				793A90801CEB4F2900C5CEAB /* PG.json in Resources */,
 				799366041CEA376D008CC705 /* Assets.xcassets in Resources */,
 				799366021CEA376D008CC705 /* Main.storyboard in Resources */,
 			);
@@ -135,7 +165,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				793A90881CECBDD400C5CEAB /* ServicsViewController.swift in Sources */,
+				793A908C1CED462100C5CEAB /* ContactViewController.swift in Sources */,
+				799366131CEA3BB4008CC705 /* ResultViewController.swift in Sources */,
 				799365FF1CEA376D008CC705 /* ViewController.swift in Sources */,
+				793A908E1CED46EE00C5CEAB /* KeyboardViewController.swift in Sources */,
+				7993660F1CEA3B98008CC705 /* CalculatorInfoViewController.swift in Sources */,
+				799366111CEA3BA6008CC705 /* CalculatorViewController.swift in Sources */,
+				793A908A1CECF08B00C5CEAB /* ThanksViewController.swift in Sources */,
 				799365FD1CEA376D008CC705 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,10 +286,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Balram Singh (98VNKJ7Y3X)";
 				INFOPLIST_FILE = Maxus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Maxus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0e9650f0-859c-482c-9fa9-fdbbe88c2046";
 			};
 			name = Debug;
 		};
@@ -260,10 +299,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Mood Media Corporation (S2T5RH48ZP)";
 				INFOPLIST_FILE = Maxus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Maxus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "bc7ebfc3-ac38-438e-a01e-38bdac64d68f";
 			};
 			name = Release;
 		};
@@ -286,6 +327,7 @@
 				7993660D1CEA376D008CC705 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
