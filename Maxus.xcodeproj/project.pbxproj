@@ -288,10 +288,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Balram Singh (98VNKJ7Y3X)";
 				INFOPLIST_FILE = Maxus/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Maxus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0e9650f0-859c-482c-9fa9-fdbbe88c2046";
+				PROVISIONING_PROFILE = "e0228266-1a36-42c9-bee1-7298f698b8a8";
 			};
 			name = Debug;
 		};
@@ -301,10 +302,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Mood Media Corporation (S2T5RH48ZP)";
 				INFOPLIST_FILE = Maxus/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Maxus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bc7ebfc3-ac38-438e-a01e-38bdac64d68f";
+				PROVISIONING_PROFILE = "7d617492-50c4-4566-8b9b-a6cf1002412e";
 			};
 			name = Release;
 		};

@@ -20,7 +20,10 @@ class ResultViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.recalculateButton.layer.cornerRadius = 10
         self.getConsultationButton.layer.cornerRadius = 10
-        self.resultLabel.text = String(format: "$%@",(result?.stringByReplacingOccurrencesOfString(" ", withString: ""))!)
+        
+        var plainString = result?.stringByReplacingOccurrencesOfString(" ", withString: "")
+        plainString = plainString?.stringByReplacingOccurrencesOfString(",", withString: "")
+        self.resultLabel.text = String(format: "%@", getCurrencyFormat(plainString!))
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,14 +46,15 @@ class ResultViewController: UIViewController {
     @IBAction func recalculate(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func getCurrencyFormat(price:String)->String{
+        let convertPrice = NSNumber(double: Double(price)!)
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .CurrencyStyle
+        formatter.currencyCode = "USD"
+        
+        let convertedPrice = formatter.stringFromNumber(convertPrice)
+        return convertedPrice!
     }
-    */
 
 }
