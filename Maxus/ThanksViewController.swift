@@ -28,6 +28,9 @@ class ThanksViewController: UIViewController {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
+    @IBAction func back(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
 
     @IBAction func showFinanceApps(sender: AnyObject) {
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("CalInfoVC")

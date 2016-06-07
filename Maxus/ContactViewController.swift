@@ -72,6 +72,9 @@ class ContactViewController: KeyboardViewController, UITextViewDelegate, MFMailC
             self.commentTextView.resignFirstResponder()
         }
     }
+    @IBAction func back(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
     @IBAction func submit(sender: AnyObject) {
         let nameCharCount = self.nameTextField.text?.characters.count
         let phoneChanCount = self.phoneTextField.text?.characters.count
@@ -128,10 +131,12 @@ class ContactViewController: KeyboardViewController, UITextViewDelegate, MFMailC
     // MARK: MFMailComposeViewControllerDelegate
     
     func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-        controller.dismissViewControllerAnimated(true) { 
-            //show Thanks Screen
-            let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ThanksVC")
-            self.navigationController?.pushViewController(vc!, animated: true)
+            controller.dismissViewControllerAnimated(true) {
+                if result == MFMailComposeResultSent {
+                    //show Thanks Screen
+                    let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ThanksVC")
+                    self.navigationController?.pushViewController(vc!, animated: true)
+            }
         }
         
     }

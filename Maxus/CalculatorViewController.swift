@@ -15,6 +15,8 @@ class CalculatorViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var thirdTF: UITextField!
     @IBOutlet weak var fourthTF: UITextField!
     
+    @IBOutlet weak var overlayContainerView: UIView!
+    @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var calculateButton: UIButton!
     var options1 = ["Other",
     "Physician",
@@ -73,7 +75,12 @@ class CalculatorViewController: UIViewController, UIPickerViewDelegate, UIPicker
         return []
     }()
     
-    
+    var formatter : NSNumberFormatter {
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .CurrencyStyle
+        formatter.currencyCode = "USD"
+        return formatter
+    }
     private var option1Index = -1
     private var option2Index = -1
     private var option3Index = -1
@@ -96,6 +103,11 @@ class CalculatorViewController: UIViewController, UIPickerViewDelegate, UIPicker
         pickerView1.tag = 1
         firstTF.inputView = pickerView1
         firstTF.inputAccessoryView = toolBar(1)
+        let frame = CGRectMake(0, 0, 10, self.firstTF.frame.size.height)
+        let leftView1 = UIView(frame:  frame)
+        firstTF.leftView = leftView1
+        firstTF.leftViewMode = .Always
+
         
         
         self.secondTF.layer.borderColor = UIColor.lightGrayColor().CGColor
@@ -107,6 +119,9 @@ class CalculatorViewController: UIViewController, UIPickerViewDelegate, UIPicker
         pickerView2.tag = 2
         secondTF.inputView = pickerView2
         secondTF.inputAccessoryView =  toolBar(2)
+        let leftView2 = UIView(frame:  frame)
+        secondTF.leftView = leftView2
+        secondTF.leftViewMode = .Always
         
         self.thirdTF.layer.borderColor = UIColor.lightGrayColor().CGColor
         self.thirdTF.layer.borderWidth = 1.0
@@ -116,6 +131,9 @@ class CalculatorViewController: UIViewController, UIPickerViewDelegate, UIPicker
         pickerView3.tag = 3
         thirdTF.inputView = pickerView3
         thirdTF.inputAccessoryView = toolBar(3)
+        let leftView3 = UIView(frame:  frame)
+        thirdTF.leftView = leftView3
+        thirdTF.leftViewMode = .Always
 
         
         self.fourthTF.layer.borderColor = UIColor.lightGrayColor().CGColor
@@ -126,19 +144,31 @@ class CalculatorViewController: UIViewController, UIPickerViewDelegate, UIPicker
         pickerView4.tag = 4
         fourthTF.inputView = pickerView4
         fourthTF.inputAccessoryView = toolBar(4)
+        let leftView4 = UIView(frame:  frame)
+        fourthTF.leftView = leftView4
+        fourthTF.leftViewMode = .Always
         
         for age in 30...90 {
             self.options3.append(String(format: "%d", age))
         }
         options4 = getSalaryOptions()
+        
+        self.overlayContainerView.layer.cornerRadius = 10
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func hideOverlay(sender: AnyObject) {
+        self.overlayView.hidden = true
+    }
     
+    @IBOutlet weak var hide: UIButton!
     @IBAction func showInfo(sender: AnyObject) {
+        self.overlayView.hidden = false
+        
     }
     @IBAction func calculate(sender: AnyObject) {
         if option1Index == -1 || option2Index == -1 || option3Index == -1 || option4Index == -1 {
@@ -171,7 +201,19 @@ class CalculatorViewController: UIViewController, UIPickerViewDelegate, UIPicker
                     let jsonResult: NSArray = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as! NSArray
                     if let salaries : NSDictionary = jsonResult[0] as? NSDictionary {
                         let allKeys  =  salaries.allKeys as! [String]
-                        return allKeys.sort { $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending }
+                        
+                        return allKeys.sort {
+                            var plainString1 = $0.stringByReplacingOccurrencesOfString(" ", withString: "")
+                            plainString1 = plainString1.stringByReplacingOccurrencesOfString(",", withString: "")
+                            let string = NSString(string: plainString1)
+                            
+                            var plainString2 = $1.stringByReplacingOccurrencesOfString(" ", withString: "")
+                            plainString2 = plainString2.stringByReplacingOccurrencesOfString(",", withString: "")
+                            
+                            let string2 = NSString(string: plainString2)
+                            
+                            return string.doubleValue < string2.doubleValue
+                            }
                     }
                 } catch {}
             } catch let error as NSError {
@@ -198,6 +240,8 @@ class CalculatorViewController: UIViewController, UIPickerViewDelegate, UIPicker
         case 3:
             return options3.count
         case 4:
+            
+            
             return options4.count
         default:
             return 0
@@ -214,7 +258,8 @@ class CalculatorViewController: UIViewController, UIPickerViewDelegate, UIPicker
         case 3:
             return options3[row]
         case 4:
-            return options4[row]
+            let currency =  getCurrencyFormatOfString(options4[row])
+            return currency
         default:
             return ""
         }
@@ -234,7 +279,7 @@ class CalculatorViewController: UIViewController, UIPickerViewDelegate, UIPicker
             self.thirdTF.text = options3[row]
         case 4:
             option4Index = row
-            self.fourthTF.text = options4[row]
+            self.fourthTF.text = getCurrencyFormatOfString(options4[row])
         default:
             print("How is this possible?")
         }
@@ -270,14 +315,14 @@ class CalculatorViewController: UIViewController, UIPickerViewDelegate, UIPicker
         } else if option2Index == 1  && option1Index > 0 {
             //use non
             selectedArrayList = nonPGArray
-        } else if option2Index == 0 && option1Index == 0 {
-            //use pg
-            selectedArrayList = pgArray
         } else if option2Index == 2 {
+            //use non
+            selectedArrayList = nonPGArray
+        } else if option2Index == 1 && option1Index == 0 {
             //use pg
             selectedArrayList = pgArray
         }
-        
+    
         if let list = selectedArrayList {
             let dict : NSDictionary =  list[option3Index]
             let key = options4[option4Index]
@@ -285,4 +330,13 @@ class CalculatorViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
     }
     
+    func getCurrencyFormatOfString  (text : String) -> String {
+        var plainString = text.stringByReplacingOccurrencesOfString(" ", withString: "")
+        plainString = plainString.stringByReplacingOccurrencesOfString(",", withString: "")
+        let string = NSString(string: plainString)
+        let convertPrice = NSNumber(double: string.doubleValue)
+        let convertedPrice = formatter.stringFromNumber(convertPrice)
+        return convertedPrice!
+        
+    }
 }
