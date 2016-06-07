@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ServicsViewController: UIViewController {
+class ServicsViewController: PopoverViewController {
 
     @IBOutlet weak var financeButton: UIButton!
     @IBOutlet weak var consultButton: UIButton!
@@ -52,6 +52,11 @@ class ServicsViewController: UIViewController {
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ContactVC")
         self.navigationController?.pushViewController(vc!, animated: true)
         
+    }
+    
+    @IBOutlet weak var menuButton: UIButton!
+    @IBAction func showMenu(sender: AnyObject) {
+        self.showPopover(self.menuButton)
     }
     
 }

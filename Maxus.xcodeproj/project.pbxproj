@@ -21,6 +21,8 @@
 		7993660F1CEA3B98008CC705 /* CalculatorInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7993660E1CEA3B98008CC705 /* CalculatorInfoViewController.swift */; };
 		799366111CEA3BA6008CC705 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799366101CEA3BA6008CC705 /* CalculatorViewController.swift */; };
 		799366131CEA3BB4008CC705 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799366121CEA3BB4008CC705 /* ResultViewController.swift */; };
+		799BEBF81D0709AF00822314 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799BEBF71D0709AF00822314 /* PopoverViewController.swift */; };
+		799BEBFC1D070A0900822314 /* OptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799BEBFB1D070A0900822314 /* OptionsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		7993660E1CEA3B98008CC705 /* CalculatorInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorInfoViewController.swift; sourceTree = "<group>"; };
 		799366101CEA3BA6008CC705 /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		799366121CEA3BB4008CC705 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		799BEBF71D0709AF00822314 /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
+		799BEBFB1D070A0900822314 /* OptionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,8 @@
 				793A90871CECBDD400C5CEAB /* ServicsViewController.swift */,
 				793A90891CECF08B00C5CEAB /* ThanksViewController.swift */,
 				793A908B1CED462100C5CEAB /* ContactViewController.swift */,
+				799BEBF71D0709AF00822314 /* PopoverViewController.swift */,
+				799BEBFB1D070A0900822314 /* OptionsTableViewController.swift */,
 			);
 			path = Maxus;
 			sourceTree = "<group>";
@@ -167,6 +173,7 @@
 			files = (
 				793A90881CECBDD400C5CEAB /* ServicsViewController.swift in Sources */,
 				793A908C1CED462100C5CEAB /* ContactViewController.swift in Sources */,
+				799BEBF81D0709AF00822314 /* PopoverViewController.swift in Sources */,
 				799366131CEA3BB4008CC705 /* ResultViewController.swift in Sources */,
 				799365FF1CEA376D008CC705 /* ViewController.swift in Sources */,
 				793A908E1CED46EE00C5CEAB /* KeyboardViewController.swift in Sources */,
@@ -174,6 +181,7 @@
 				799366111CEA3BA6008CC705 /* CalculatorViewController.swift in Sources */,
 				793A908A1CECF08B00C5CEAB /* ThanksViewController.swift in Sources */,
 				799365FD1CEA376D008CC705 /* AppDelegate.swift in Sources */,
+				799BEBFC1D070A0900822314 /* OptionsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,8 +8,10 @@
 
 import UIKit
 
-class CalculatorViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class CalculatorViewController: PopoverViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    @IBOutlet weak var menuButton: UIButton!
+    
     @IBOutlet weak var firstTF: UITextField!
     @IBOutlet weak var secondTF: UITextField!
     @IBOutlet weak var thirdTF: UITextField!
@@ -337,6 +339,10 @@ class CalculatorViewController: UIViewController, UIPickerViewDelegate, UIPicker
         let convertPrice = NSNumber(double: string.doubleValue)
         let convertedPrice = formatter.stringFromNumber(convertPrice)
         return convertedPrice!
+        
+    }
+    @IBAction func showMenu(sender: AnyObject) {
+        self.showPopover(self.menuButton)
         
     }
 }

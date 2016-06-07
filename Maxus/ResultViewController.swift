@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ResultViewController: UIViewController {
+class ResultViewController: PopoverViewController {
 
     var result : String?
     @IBOutlet weak var resultLabel: UILabel!
@@ -57,4 +57,8 @@ class ResultViewController: UIViewController {
         return convertedPrice!
     }
 
+    @IBOutlet weak var menuButton: UIButton!
+    @IBAction func showMenu(sender: AnyObject) {
+        self.showPopover(self.menuButton)
+    }
 }

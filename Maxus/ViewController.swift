@@ -8,8 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: PopoverViewController {
 
+    @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view3: UIView!
@@ -28,6 +29,8 @@ class ViewController: UIViewController {
     }
 
     @IBAction func menuButtonTapped(sender: UIButton) {
+        self.showPopover(self.menuButton)
+        
     }
     @IBAction func showMaxusServices(sender: UIButton) {
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ServicesVC")

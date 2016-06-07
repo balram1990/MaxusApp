@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ThanksViewController: UIViewController {
+class ThanksViewController: PopoverViewController {
 
     @IBOutlet weak var financeButton: UIButton!
     override func viewDidLoad() {
@@ -46,4 +46,8 @@ class ThanksViewController: UIViewController {
     }
     */
 
+    @IBAction func showMenu(sender: AnyObject) {
+        self.showPopover(self.menuButton)
+    }
+    @IBOutlet weak var menuButton: UIButton!
 }

@@ -8,20 +8,24 @@
 
 import UIKit
 
-class CalculatorInfoViewController: UIViewController {
+class CalculatorInfoViewController: PopoverViewController {
 
+    @IBOutlet weak var benefitsButton: UIButton!
     @IBOutlet weak var button1: UIView!
     @IBOutlet weak var button2: UIView!
     @IBOutlet weak var button3: UIView!
     
+    @IBOutlet weak var benefitsContainerView: UIView!
+    @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var innerView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.benefitsButton.layer.cornerRadius = 10.0
         self.button1.layer.cornerRadius = 10.0
         self.button2.layer.cornerRadius = 10.0
         self.button3.layer.cornerRadius = 10.0
-        
+        self.benefitsContainerView.layer.cornerRadius = 10.0
         self.navigationController?.navigationBarHidden = true
         
         // Do any additional setup after loading the view.
@@ -49,6 +53,10 @@ class CalculatorInfoViewController: UIViewController {
 
     @IBAction func menuButtonClicked(sender: UIButton) {
         self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    @IBAction func showMenu(sender: AnyObject) {
+        self.showPopover(self.menuButton)
+        
     }
    
     @IBOutlet weak var showInfo: NSLayoutConstraint!
