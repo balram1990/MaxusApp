@@ -304,9 +304,66 @@ class CalculatorViewController: PopoverViewController, UIPickerViewDelegate, UIP
         
         let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(CalculatorViewController.done))
         doneButton.tag = textFieldIndex
+        
+        let buttonPrevious =  UIBarButtonItem(title: "Prev", style: .Plain, target: self, action: #selector(self.goToPrevious))
+        buttonPrevious.tag = textFieldIndex
+        let nextButton =  UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(self.next))
+        nextButton.tag = textFieldIndex
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        
+        
         let toolBar = UIToolbar(frame: CGRectMake(0, 0, self.view.frame.size.width, 44))
-        toolBar.items = [doneButton]
+        switch textFieldIndex {
+        case 1:
+            toolBar.items = [nextButton, flexibleSpace, doneButton]
+            break
+        case 2:
+            toolBar.items = [buttonPrevious, nextButton, flexibleSpace, doneButton]
+            break
+        case 3:
+            toolBar.items = [buttonPrevious, nextButton, flexibleSpace, doneButton]
+            break
+        case 4:
+            toolBar.items = [buttonPrevious, flexibleSpace, doneButton]
+            break
+        default:
+            break
+        }
         return toolBar
+    }
+    
+    func next (barButton : UIBarButtonItem) {
+        switch barButton.tag {
+        case 1:
+            secondTF.becomeFirstResponder()
+            break
+        case 2:
+            thirdTF.becomeFirstResponder()
+            break
+        case 3:
+            fourthTF.becomeFirstResponder()
+            break
+        default:
+            break
+        }
+    }
+    
+    func goToPrevious(barButton : UIBarButtonItem) {
+        switch barButton.tag {
+        case 2:
+            firstTF.becomeFirstResponder()
+            break
+        case 3:
+            secondTF.becomeFirstResponder()
+            break
+        case 4:
+            thirdTF.becomeFirstResponder()
+            break
+        default:
+            break
+        }
+        
     }
     
     func calculateResult () {

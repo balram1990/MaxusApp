@@ -11,6 +11,7 @@ import MessageUI
 
 class ContactViewController: KeyboardViewController, UITextViewDelegate, MFMailComposeViewControllerDelegate, OptionsDelegate {
 
+    @IBOutlet weak var addresslabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextFiedl: UITextField!
@@ -44,6 +45,14 @@ class ContactViewController: KeyboardViewController, UITextViewDelegate, MFMailC
         self.commentTextView.layer.cornerRadius = 5.0
         self.commentTextView.layer.borderColor = UIColor.lightGrayColor().CGColor
         self.commentTextView.layer.borderWidth = 1.0
+    }
+    
+    @IBOutlet weak var middleViewHeightConstraint: NSLayoutConstraint!
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        var frame = self.middleContainerView.frame
+        frame.size.height = CGRectGetMaxY(self.addresslabel.frame) + 10
+        self.middleContainerView.frame = frame
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {

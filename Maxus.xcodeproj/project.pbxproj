@@ -300,7 +300,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Maxus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "663aa67f-3d28-4f67-adba-3e9922bc7a94";
+				PROVISIONING_PROFILE = "c33b0037-6a3c-4e9c-8831-5bea44635b07";
 			};
 			name = Debug;
 		};
@@ -314,7 +314,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Maxus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cc30920b-2526-457a-98a3-96d671d6c748";
+				PROVISIONING_PROFILE = "5532f4d3-90ca-44e3-876f-4eeb6c416923";
 			};
 			name = Release;
 		};

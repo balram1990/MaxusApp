@@ -10,11 +10,13 @@ import UIKit
 
 class CalculatorInfoViewController: PopoverViewController {
 
+    @IBOutlet weak var middleScrollView: UIScrollView!
     @IBOutlet weak var benefitsButton: UIButton!
     @IBOutlet weak var button1: UIView!
     @IBOutlet weak var button2: UIView!
     @IBOutlet weak var button3: UIView!
     
+    @IBOutlet weak var lastView: UIView!
     @IBOutlet weak var benefitsContainerView: UIView!
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var overlayView: UIView!
@@ -62,6 +64,11 @@ class CalculatorInfoViewController: PopoverViewController {
     @IBOutlet weak var showInfo: NSLayoutConstraint!
     @IBAction func backPressed(sender: UIButton) {
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        self.middleScrollView.contentSize = CGSizeMake(CGRectGetMaxX(self.middleScrollView.frame), CGRectGetMaxY(self.lastView.frame))
     }
     /*
     
