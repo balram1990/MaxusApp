@@ -8,7 +8,10 @@
 
 import UIKit
 
-class CalculatorViewController: PopoverViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class CalculatorViewController: PopoverViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+
+    var textField: UIView? = nil
+    private var originalFrame: CGRect? = nil
 
     @IBOutlet weak var menuButton: UIButton!
     
@@ -157,6 +160,10 @@ class CalculatorViewController: PopoverViewController, UIPickerViewDelegate, UIP
         
         self.overlayContainerView.layer.cornerRadius = 10
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.originalFrame = self.view.frame
     }
 
     override func didReceiveMemoryWarning() {
@@ -401,5 +408,50 @@ class CalculatorViewController: PopoverViewController, UIPickerViewDelegate, UIP
     @IBAction func showMenu(sender: AnyObject) {
         self.showPopover(self.menuButton)
         
+    }
+    
+    //MARK: UITextFieldDelegate
+    func textFieldDidBeginEditing(textField: UITextField) {
+        self.textField = textField
+        self.keyboardShown()
+
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        keyboardHidden()
+    }
+    
+    
+    func keyboardShown() {
+        let rawFrame = UIPickerView().frame
+        let keyboardFrame = view.convertRect(rawFrame, fromView: nil)
+        
+        let movementDuration = 0.1;
+        
+        if let field = self.textField {
+            let frame = view.convertRect(field.frame, fromView: field.superview)
+            let viewFrame = self.view.frame
+            if CGRectGetMaxY(frame) > viewFrame.size.height - keyboardFrame.size.height {
+                let movement = -(CGRectGetMaxY(frame) - (viewFrame.size.height - keyboardFrame.size.height) + 50)
+                
+                UIView.beginAnimations("anim", context: nil)
+                UIView.setAnimationBeginsFromCurrentState(true)
+                UIView.setAnimationDuration(movementDuration)
+                self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+                UIView.commitAnimations();
+            }
+        }
+    }
+    
+    func keyboardHidden() {
+        let movementDuration = 0.1;
+        if let _ = self.originalFrame {
+            let movement = (self.originalFrame?.origin.y)! - self.view.frame.origin.y;
+            UIView.beginAnimations("anim", context: nil)
+            UIView.setAnimationBeginsFromCurrentState(true)
+            UIView.setAnimationDuration(movementDuration)
+            self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+            UIView.commitAnimations();
+        }
     }
 }
