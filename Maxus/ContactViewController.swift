@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-class ContactViewController: KeyboardViewController, UITextViewDelegate, MFMailComposeViewControllerDelegate, OptionsDelegate {
+class ContactViewController: UIViewController, UITextViewDelegate, MFMailComposeViewControllerDelegate, OptionsDelegate {
 
     @IBOutlet weak var addresslabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
@@ -20,6 +20,8 @@ class ContactViewController: KeyboardViewController, UITextViewDelegate, MFMailC
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var middleContainerView: UIView!
+    var firstResponderView : UIView?
+    private var originalFrame: CGRect? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -53,14 +55,8 @@ class ContactViewController: KeyboardViewController, UITextViewDelegate, MFMailC
         var frame = self.middleContainerView.frame
         frame.size.height = CGRectGetMaxY(self.addresslabel.frame) + 10
         self.middleContainerView.frame = frame
-    }
-    
-    func textFieldDidBeginEditing(textField: UITextField) {
-        self.textField = textField
-    }
-    
-    func textViewDidBeginEditing(textView: UITextView) {
-        self.textField = textView
+        
+        self.originalFrame = self.view.frame
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -201,4 +197,59 @@ class ContactViewController: KeyboardViewController, UITextViewDelegate, MFMailC
         }
         
     }
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        firstResponderView = textView
+        self.keyboardShown()
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        self.keyboardHidden()
+    }
+    
+    //MARK: UITextFieldDelegate
+    func textFieldDidBeginEditing(textField: UITextField) {
+        firstResponderView = textField
+        self.keyboardShown()
+        
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        keyboardHidden()
+    }
+    
+    
+    func keyboardShown() {
+        let rawFrame = UIPickerView().frame
+        let keyboardFrame = view.convertRect(rawFrame, fromView: nil)
+        
+        let movementDuration = 0.1;
+        
+        if let field : UIView = firstResponderView {
+            let frame = view.convertRect(field.frame, fromView: field.superview)
+            let viewFrame = self.view.frame
+            if CGRectGetMaxY(frame) > viewFrame.size.height - keyboardFrame.size.height {
+                let movement = -(CGRectGetMaxY(frame) - (viewFrame.size.height - keyboardFrame.size.height) + 20)
+                
+                UIView.beginAnimations("anim", context: nil)
+                UIView.setAnimationBeginsFromCurrentState(true)
+                UIView.setAnimationDuration(movementDuration)
+                self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+                UIView.commitAnimations();
+            }
+        }
+    }
+    
+    func keyboardHidden() {
+        let movementDuration = 0.1;
+        if let _ = self.originalFrame {
+            let movement = (self.originalFrame?.origin.y)! - self.view.frame.origin.y;
+            UIView.beginAnimations("anim", context: nil)
+            UIView.setAnimationBeginsFromCurrentState(true)
+            UIView.setAnimationDuration(movementDuration)
+            self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+            UIView.commitAnimations();
+        }
+    }
+
 }

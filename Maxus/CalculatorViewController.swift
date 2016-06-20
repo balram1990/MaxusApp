@@ -296,12 +296,24 @@ class CalculatorViewController: PopoverViewController, UIPickerViewDelegate, UIP
     
     func done(doneButton : UIBarButtonSystemItem) {
         if firstTF.isFirstResponder() {
+            if firstTF.text == "" {
+                self.makeDefaultSelection(firstTF)
+            }
             firstTF.resignFirstResponder()
         } else if secondTF.isFirstResponder() {
+            if secondTF.text == "" {
+                self.makeDefaultSelection(secondTF)
+            }
             secondTF.resignFirstResponder()
         } else if thirdTF.isFirstResponder() {
+            if thirdTF.text == "" {
+                self.makeDefaultSelection(thirdTF)
+            }
             thirdTF.resignFirstResponder()
         } else if fourthTF.isFirstResponder() {
+            if fourthTF.text == "" {
+                self.makeDefaultSelection(fourthTF)
+            }
             fourthTF.resignFirstResponder()
         }
     }
@@ -343,12 +355,21 @@ class CalculatorViewController: PopoverViewController, UIPickerViewDelegate, UIP
     func next (barButton : UIBarButtonItem) {
         switch barButton.tag {
         case 1:
+            if firstTF.text == "" {
+                self.makeDefaultSelection(firstTF)
+            }
             secondTF.becomeFirstResponder()
             break
         case 2:
+            if secondTF.text == "" {
+                self.makeDefaultSelection(secondTF)
+            }
             thirdTF.becomeFirstResponder()
             break
         case 3:
+            if thirdTF.text == "" {
+                self.makeDefaultSelection(thirdTF)
+            }
             fourthTF.becomeFirstResponder()
             break
         default:
@@ -359,18 +380,32 @@ class CalculatorViewController: PopoverViewController, UIPickerViewDelegate, UIP
     func goToPrevious(barButton : UIBarButtonItem) {
         switch barButton.tag {
         case 2:
+            if secondTF.text == "" {
+                self.makeDefaultSelection(secondTF)
+            }
             firstTF.becomeFirstResponder()
             break
         case 3:
+            if thirdTF.text == "" {
+                self.makeDefaultSelection(thirdTF)
+            }
             secondTF.becomeFirstResponder()
             break
         case 4:
+            if fourthTF.text == "" {
+                self.makeDefaultSelection(fourthTF)
+            }
             thirdTF.becomeFirstResponder()
             break
         default:
             break
         }
-        
+    }
+    
+    func makeDefaultSelection (textField : UITextField) {
+        let picker =  textField.inputView as? UIPickerView
+        picker?.selectRow(0, inComponent: 0, animated: false)
+        self.pickerView(picker!, didSelectRow: 0, inComponent: 0)
     }
     
     func calculateResult () {

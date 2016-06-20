@@ -14,7 +14,7 @@ protocol OptionsDelegate {
 
 class OptionsTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
 
-    var options = ["Home", "Sevices", "Financial Apps", "Contact Us"]
+    var options = ["Home", "Services", "Financial Apps", "Contact Us"]
     let CellIdentifier = "OptionCell"
     var delegate : OptionsDelegate?
     
@@ -22,7 +22,9 @@ class OptionsTableViewController: UITableViewController, UIPopoverPresentationCo
         super.init(style: style)
         self.modalPresentationStyle = .Popover;
         self.popoverPresentationController!.delegate = self;
-        self.preferredContentSize = CGSizeMake(200, 200)
+        self.tableView.rowHeight = 44
+        self.preferredContentSize = CGSizeMake(180, 44*4)
+        self.tableView.scrollEnabled = false
     }
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
