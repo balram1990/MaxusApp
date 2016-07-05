@@ -129,7 +129,7 @@
 				TargetAttributes = {
 					799365F81CEA376D008CC705 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = S2T5RH48ZP;
+						DevelopmentTeam = TRKTS43S8B;
 					};
 				};
 			};
@@ -225,7 +225,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Balram Singh (98VNKJ7Y3X)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -247,6 +247,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "c33b0037-6a3c-4e9c-8831-5bea44635b07";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -270,7 +271,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Maxus Plan Solutions, Inc. (TRKTS43S8B)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -285,6 +286,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "06c302a4-8dcd-4ddf-828f-e22c9b01ab22";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -295,10 +297,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Balram Singh (98VNKJ7Y3X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Balram Singh (98VNKJ7Y3X)";
 				INFOPLIST_FILE = Maxus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Maxus;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MaxusApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c33b0037-6a3c-4e9c-8831-5bea44635b07";
 			};
@@ -308,13 +311,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mood Media Corporation (S2T5RH48ZP)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Maxus Plan Solutions, Inc. (TRKTS43S8B)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Maxus Plan Solutions, Inc. (TRKTS43S8B)";
 				INFOPLIST_FILE = Maxus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Maxus;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MaxusApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5532f4d3-90ca-44e3-876f-4eeb6c416923";
+				PROVISIONING_PROFILE = "06c302a4-8dcd-4ddf-828f-e22c9b01ab22";
 			};
 			name = Release;
 		};

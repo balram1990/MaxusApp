@@ -21,6 +21,7 @@ class CalculatorInfoViewController: PopoverViewController {
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var innerView: UIView!
+    @IBOutlet weak var overlayContainerHeightConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.benefitsButton.layer.cornerRadius = 10.0
@@ -34,6 +35,15 @@ class CalculatorInfoViewController: PopoverViewController {
         
         self.overlayView.hidden = true
         self.innerView.layer.cornerRadius = 10.0
+        
+        if isPhone4CategoryDevice() {
+            overlayContainerHeightConstraint.constant = (self.view.frame.size.height * 0.30)
+        }
+    }
+    
+    func isPhone4CategoryDevice () -> Bool {
+        let height = UIScreen.mainScreen().bounds.size.height
+        return (height == 480 || height == 568)
     }
 
     override func didReceiveMemoryWarning() {

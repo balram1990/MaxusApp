@@ -20,6 +20,7 @@ class CalculatorViewController: PopoverViewController, UIPickerViewDelegate, UIP
     @IBOutlet weak var thirdTF: UITextField!
     @IBOutlet weak var fourthTF: UITextField!
     
+    @IBOutlet weak var overlayContainerHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var overlayContainerView: UIView!
     @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var calculateButton: UIButton!
@@ -159,9 +160,15 @@ class CalculatorViewController: PopoverViewController, UIPickerViewDelegate, UIP
         options4 = getSalaryOptions()
         
         self.overlayContainerView.layer.cornerRadius = 10
-        
+        if isPhone4CategoryDevice() {
+            overlayContainerHeightConstraint.constant = self.view.frame.size.height * 0.30
+        }
     }
     
+    func isPhone4CategoryDevice () -> Bool {
+        let height = UIScreen.mainScreen().bounds.size.height
+        return (height == 480 || height == 568)
+    }
     override func viewDidAppear(animated: Bool) {
         self.originalFrame = self.view.frame
     }
